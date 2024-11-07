@@ -10,13 +10,13 @@ public class ItemFactory : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    async void Update()
     {
         if(Input.GetMouseButtonDown(0)) {
             var type = FactoryItemProvider.Generate();
             var obj = (GameObject)Resources.Load(type.ToString());
             obj.transform.localScale = BallParameter.GenerateScale();
-            Instantiate(obj, BallParameter.GeneratePosition(), Quaternion.identity);
+            await InstantiateAsync(obj, BallParameter.GeneratePosition(), Quaternion.identity);
         }
     }
 }
