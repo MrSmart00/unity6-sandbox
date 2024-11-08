@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ItemFactory : MonoBehaviour
 {
+    private FactoryItemProvider provider = new FactoryItemProvider();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,10 +14,11 @@ public class ItemFactory : MonoBehaviour
     async void Update()
     {
         if(Input.GetMouseButtonDown(0)) {
-            var type = FactoryItemProvider.Generate();
-            var obj = (GameObject)Resources.Load(type.ToString());
-            obj.transform.localScale = BallParameter.GenerateScale();
-            await InstantiateAsync(obj, BallParameter.GeneratePosition(), Quaternion.identity);
+            await InstantiateAsync(
+                provider.Generate(), 
+                BallParameter.GeneratePosition(), 
+                Quaternion.identity
+            );
         }
     }
 }

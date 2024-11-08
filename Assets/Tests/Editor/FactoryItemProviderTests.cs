@@ -1,11 +1,15 @@
+using System;
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using Assert = UnityEngine.Assertions.Assert;
+using Random = UnityEngine.Random;
 
 public class FactoryItemProviderTests
 {
+    FactoryItemProvider provider = new FactoryItemProvider();
+
     [SetUp]
     public void Setup()
     {
@@ -15,17 +19,17 @@ public class FactoryItemProviderTests
     [Test]
     public void ProviderTests()
     {
-        Assert.AreEqual(FactoryItemType.Capsule, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Capsule, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Capsule, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Capsule, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Capsule, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Capsule, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Capsule, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Capsule, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Cube, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Sphere, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Sphere, FactoryItemProvider.Generate());
-        Assert.AreEqual(FactoryItemType.Cylinder, FactoryItemProvider.Generate());
+        Assert.AreEqual(FactoryItemType.Capsule, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Capsule, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Capsule, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Capsule, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Cube, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Sphere, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Cylinder, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Sphere, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Cylinder, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Sphere, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Cylinder, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
+        Assert.AreEqual(FactoryItemType.Cylinder, Enum.Parse(typeof(FactoryItemType),  provider.Generate().name));
     }
 }
