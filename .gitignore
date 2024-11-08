@@ -72,3 +72,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 ios/
+
+# TextMesh Pro files
+/[Aa]ssets/TextMesh*Pro/
